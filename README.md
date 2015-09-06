@@ -1,3 +1,7 @@
+[![Code Climate](https://codeclimate.com/github/quantiguous/iibee/badges/gpa.svg)](https://codeclimate.com/github/quantiguous/iibee)
+[![Code Climate](https://codeclimate.com/github/quantiguous/iibee/badges/gpa.svg)](https://codeclimate.com/github/quantiguous/iibee)
+[![Test Coverage](https://codeclimate.com/github/quantiguous/iibee/badges/coverage.svg)](https://codeclimate.com/github/quantiguous/iibee/coverage)
+
 # Iibee
 
 A ruby sdk for the IIB REST API 
