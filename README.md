@@ -1,4 +1,4 @@
-[![Test Coverage](https://codeclimate.com/github/quantiguous/iibee/badges/coverage.svg)](https://codeclimate.com/github/quantiguous/iibee/coverage)
+[![Codeship Status for quantiguous/iibee](https://codeship.com/projects/8b85c0f0-36f8-0133-93cb-2615b91c1f97/status?branch=master)](https://codeship.com/projects/100974)
 [![Code Climate](https://codeclimate.com/github/quantiguous/iibee/badges/gpa.svg)](https://codeclimate.com/github/quantiguous/iibee)
 [![Test Coverage](https://codeclimate.com/github/quantiguous/iibee/badges/coverage.svg)](https://codeclimate.com/github/quantiguous/iibee/coverage)
 
