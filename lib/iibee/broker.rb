@@ -1,10 +1,9 @@
 require 'faraday'
 require 'oga'
 
-API_URL = "http://10.211.55.7:4424/apiv1/properties"
-
 module Iibee
   class Broker
+    CONTEXT_PATH  = "/properties/"
     attr_reader :AdminSecurity, :version, :name, :runMode, :shortDesc, :longDesc, 
     :platformName, :FixpackCapability, :platformArchitecture, :platformVersion, :operationMode, :buildLevel, :AdminAgentPID, :queueManager 
     
@@ -28,7 +27,7 @@ module Iibee
     end
     
     def self.find(id)
-      response = Faraday.get("#{API_URL}/")
+      response = Faraday.get("#{Iibee.configuration.base_url}#{CONTEXT_PATH}")
       document = Oga.parse_xml(response.body)
       new(document)
     end

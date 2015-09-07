@@ -1,6 +1,17 @@
 require "iibee/version"
 require "iibee/broker"
+require "iibee/configuration"
 
 module Iibee
-  # Your code goes here...
+  class << self
+    attr_writer :configuration
+  end
+  
+  def self.configuration
+    @configuration ||= Configuration.new
+  end
+
+  def self.configure
+    yield(configuration)
+  end
 end
