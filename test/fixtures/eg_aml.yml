@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://10.211.55.4:4414/apiv1//executiongroups//aml//properties/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Cache-Control:
+      - max-age=0
+      Expires:
+      - Mon, 07 Sep 2015 04:53:39 GMT
+      Content-Type:
+      - application/xml
+      Content-Length:
+      - '979'
+      Date:
+      - Mon, 07 Sep 2015 04:53:39 GMT
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><properties uri="/apiv1/executiongroups/aml/properties"><basicProperties><property
+        name="label" value="aml"/><property name="runMode" value="running"/><property
+        name="uuid" value="87a72543-4d01-0000-0080-92cb36a72e5a"/><property name="isRunning"
+        value="true"/><property name="shortDesc" value=""/><property name="longDesc"
+        value=""/></basicProperties><advancedProperties><property name="processId"
+        value="30316"/><property name="traceLevel" value="none"/><property name="soapNodesUseEmbeddedListener"
+        value="false"/><property name="compiledXPathCacheSizeEntries" value="100"/><property
+        name="consoleMode" value="off"/><property name="httpNodesUseEmbeddedListener"
+        value="false"/><property name="inactiveUserExitList" value=""/><property name="activeUserExitList"
+        value=""/><property name="traceNodeLevel" value="on"/><property name="userTraceLevel"
+        value="debugTrace"/></advancedProperties><deployedProperties/></properties>
+    http_version: 
+  recorded_at: Mon, 07 Sep 2015 07:23:40 GMT
+recorded_with: VCR 2.9.3

@@ -6,7 +6,7 @@ class TestIibee < Minitest::Test
   end
 
   def test_it_gives_back_a_single_broker
-    VCR.use_cassette('broker') do
+    VCR.use_cassette('broker', :record => :all) do
       broker = Iibee::Broker.find(1)
       assert_equal Iibee::Broker, broker.class
     end

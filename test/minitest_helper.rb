@@ -14,5 +14,5 @@ VCR.configure do |c|
 end
 
 Iibee.configure do |config|
-  config.base_url = "http://10.211.55.7:4424/apiv1"
+  config.base_url = "http://10.211.55.4:4414/apiv1"
 end

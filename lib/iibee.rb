@@ -1,6 +1,8 @@
 require "iibee/version"
-require "iibee/broker"
 require "iibee/configuration"
+require "iibee/broker"
+require "iibee/execution_group"
+require "iibee/service"
 
 module Iibee
   class << self
