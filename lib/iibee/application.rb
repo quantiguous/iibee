@@ -2,7 +2,7 @@ require 'faraday'
 require 'oga'
 
 module Iibee
-  class Service
+  class Application
     class Properties
       attr_reader :processId, :traceLevel, :soapNodesUseEmbeddedListener, :compiledXPathCacheSizeEntries, :consoleMode, :httpNodesUseEmbeddedListener, :inactiveUserExitList, :activeUserExitList, :traceNodeLevel, :userTraceLevel
       def initialize(document)
@@ -19,7 +19,7 @@ module Iibee
     attr_reader :type, :isRunning, :runMode, :startMode, :hasChildren, :uuid, :name, :propertiesUri
     
     def initialize(document)
-      document.xpath('service/@*').each do |attribute|        
+      document.xpath('application/@*').each do |attribute|        
         instance_variable_set("@#{attribute.name}", attribute.value)
       end
     end
@@ -27,21 +27,20 @@ module Iibee
     def properties
       response = Faraday.get("#{Iibee.configuration.base_url}/#{self.propertiesUri}")
       document = Oga.parse_xml(response.body)
-      @properties = Iibee::Service::Properties.new(document)
+      @properties = Iibee::Application::Properties.new(document)
     end
     
     def self.all(egName)
-      services = []
-      response = Faraday.get("#{Iibee.configuration.base_url}/#{CONTEXT_PATH}/#{egName}/services/")
-      p "#{Iibee.configuration.base_url}/#{CONTEXT_PATH}/#{egName}/services/"
+      applications = []
+      response = Faraday.get("#{Iibee.configuration.base_url}/#{CONTEXT_PATH}/#{egName}/applications/")
       document = Oga.parse_xml(response.body)
-      document.xpath('services/service').each do |service|
-          services << new(document)  
+      document.xpath('applications/application').each do |application|
+          applications << new(document)  
       end
     end
     
     def self.find_by_name(egName, name)
-      response = Faraday.get("#{Iibee.configuration.base_url}/#{CONTEXT_PATH}/#{egName}/services/#{name}")
+      response = Faraday.get("#{Iibee.configuration.base_url}/#{CONTEXT_PATH}/#{egName}/applications/#{name}")
       document = Oga.parse_xml(response.body)
       new(document)        
     end

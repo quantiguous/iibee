@@ -3,7 +3,7 @@ require 'oga'
 
 module Iibee
   class Broker
-    CONTEXT_PATH  = "/properties/"
+    CONTEXT_PATH  = "/apiv1/properties/"
     attr_reader :AdminSecurity, :version, :name, :runMode, :shortDesc, :longDesc, 
     :platformName, :FixpackCapability, :platformArchitecture, :platformVersion, :operationMode, :buildLevel, :AdminAgentPID, :queueManager 
     
@@ -29,7 +29,8 @@ module Iibee
     def self.find(id)
       response = Faraday.get("#{Iibee.configuration.base_url}#{CONTEXT_PATH}")
       document = Oga.parse_xml(response.body)
+      p document
       new(document)
-    end
+    end    
   end
 end
