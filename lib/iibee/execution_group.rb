@@ -4,12 +4,14 @@ require 'oga'
 module Iibee
   class ExecutionGroup
     class Properties
-      attr_reader :processId, :traceLevel, :soapNodesUseEmbeddedListener, :compiledXPathCacheSizeEntries, :consoleMode, :httpNodesUseEmbeddedListener, :inactiveUserExitList, :activeUserExitList, :traceNodeLevel, :userTraceLevel
+      attr_reader :label, :runMode, :uuid, :isRunning, :shortDesc, :longDesc, :processId, :traceLevel, :soapNodesUseEmbeddedListener, 
+                  :compiledXPathCacheSizeEntries, :consoleMode, :httpNodesUseEmbeddedListener, :inactiveUserExitList, :activeUserExitList, 
+                  :traceNodeLevel, :userTraceLevel, :modifyTime, :deployTime, :barFileName
       def initialize(document)
-        document.xpath('properties/advancedProperties/property').each do |advancedProperty|
+        document.xpath('properties/*/property').each do |property|
           
-          propertyName = advancedProperty.get('name')
-          propertyValue = advancedProperty.get('value')
+          propertyName = property.get('name')
+          propertyValue = property.get('value')
           instance_variable_set("@#{propertyName}", propertyValue)
         end
       end
@@ -17,10 +19,10 @@ module Iibee
     
     CONTEXT_PATH = "/apiv1/executiongroups/"
     
-    attr_reader :isRunning, :runMode, :isRestricted, :hasChildren, :uri, :propertiesUri, :uuid, :name, :properties
+    attr_reader :isRunning, :runMode, :isRestricted, :hasChildren, :uri, :propertiesUri, :uuid, :name
   
     def initialize(document)
-      document.xpath('executionGroup/@*').each do |attribute|
+      document.xpath('@*').each do |attribute|
         instance_variable_set("@#{attribute.name}", cast_value(attribute.name, attribute.value))
       end
     end
@@ -36,14 +38,25 @@ module Iibee
       response = Faraday.get("#{Iibee.configuration.base_url}/#{CONTEXT_PATH}/")
       document = Oga.parse_xml(response.body)
       document.xpath('executionGroups/executionGroup').each do |eg|
-          egs << new(document)  
+        egs << new(eg)  
       end
+      return egs
     end
     
-    def self.find_by_name(name)
-      response = Faraday.get("#{Iibee.configuration.base_url}/#{CONTEXT_PATH}/#{name}")
-      document = Oga.parse_xml(response.body)
-      new(document)        
+    def self.find_by(name: nil)
+      where(name: name).first
+    end
+    
+    def self.where(name: nil)
+      egs = []
+      unless name.nil?
+        response = Faraday.get("#{Iibee.configuration.base_url}/#{CONTEXT_PATH}/#{name}")
+        document = Oga.parse_xml(response.body)
+        document.xpath("//executionGroup[@name='#{name}']").each do |eg|
+          egs << new(eg)  
+        end
+      end
+      return egs
     end
     
     protected

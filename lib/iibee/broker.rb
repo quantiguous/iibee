@@ -29,7 +29,6 @@ module Iibee
     def self.find(id)
       response = Faraday.get("#{Iibee.configuration.base_url}#{CONTEXT_PATH}")
       document = Oga.parse_xml(response.body)
-      p document
       new(document)
     end    
   end

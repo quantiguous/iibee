@@ -1,0 +1,201 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://10.211.55.4:4414/apiv1/executiongroups/?depth=3
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Cache-Control:
+      - max-age=0
+      Expires:
+      - Wed, 09 Sep 2015 03:28:16 GMT
+      Content-Type:
+      - application/xml
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Wed, 09 Sep 2015 03:28:16 GMT
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><executionGroups
+        type="executionGroups" uri="/apiv1/executiongroups"><executionGroup type="executionGroup"
+        isRunning="false" runMode="stopped" isRestricted="false" uri="/apiv1/executiongroups/Q"
+        propertiesUri="/apiv1/executiongroups/Q/properties" uuid="1b14c722-4801-0000-0080-8109094bcb44"
+        name="Q"><services type="services" uri="/apiv1/executiongroups/Q/services"/><applications
+        type="applications" uri="/apiv1/executiongroups/Q/applications"/><libraries
+        type="libraries" uri="/apiv1/executiongroups/Q/libraries"/><messageFlows type="messageFlows"
+        uri="/apiv1/executiongroups/Q/messageflows"/></executionGroup><executionGroup
+        type="executionGroup" isRunning="false" runMode="stopped" isRestricted="false"
+        uri="/apiv1/executiongroups/mbrecord" propertiesUri="/apiv1/executiongroups/mbrecord/properties"
+        uuid="80b780d5-4801-0000-0080-8a8810dd4f00" name="mbrecord"><services type="services"
+        uri="/apiv1/executiongroups/mbrecord/services"/><applications type="applications"
+        uri="/apiv1/executiongroups/mbrecord/applications"/><libraries type="libraries"
+        uri="/apiv1/executiongroups/mbrecord/libraries"/><messageFlows type="messageFlows"
+        uri="/apiv1/executiongroups/mbrecord/messageflows"/></executionGroup><executionGroup
+        type="executionGroup" isRunning="false" runMode="stopped" isRestricted="false"
+        uri="/apiv1/executiongroups/mbreplay" propertiesUri="/apiv1/executiongroups/mbreplay/properties"
+        uuid="3dfc80d5-4801-0000-0080-940239b0559d" name="mbreplay"><services type="services"
+        uri="/apiv1/executiongroups/mbreplay/services"/><applications type="applications"
+        uri="/apiv1/executiongroups/mbreplay/applications"/><libraries type="libraries"
+        uri="/apiv1/executiongroups/mbreplay/libraries"/><messageFlows type="messageFlows"
+        uri="/apiv1/executiongroups/mbreplay/messageflows"/></executionGroup><executionGroup
+        type="executionGroup" isRunning="true" runMode="running" isRestricted="false"
+        uri="/apiv1/executiongroups/Mock" propertiesUri="/apiv1/executiongroups/Mock/properties"
+        uuid="212a9a1e-4901-0000-0080-e7321e7ebaa6" name="Mock"><services type="services"
+        uri="/apiv1/executiongroups/Mock/services"><service type="service" isRunning="true"
+        runMode="running" startMode="Maintained" hasChildren="true" uri="/apiv1/executiongroups/Mock/services/test"
+        propertiesUri="/apiv1/executiongroups/Mock/services/test/properties" uuid="f97913b0-4f01-0000-0080-8c8ca22aa21f"
+        name="test"/></services><applications type="applications" uri="/apiv1/executiongroups/Mock/applications"><application
+        type="application" isRunning="true" runMode="running" startMode="Maintained"
+        hasChildren="true" uri="/apiv1/executiongroups/Mock/applications/MockServer.app"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/MockServer.app/properties"
+        uuid="fb8e2680-4901-0000-0080-dda960d8d103" name="MockServer.app"/><application
+        type="application" isRunning="true" runMode="running" startMode="Maintained"
+        hasChildren="true" uri="/apiv1/executiongroups/Mock/applications/Example"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/Example/properties"
+        uuid="76165eab-4f01-0000-0080-8c8ca22aa21f" name="Example"/></applications><libraries
+        type="libraries" uri="/apiv1/executiongroups/Mock/libraries"/><messageFlows
+        type="messageFlows" uri="/apiv1/executiongroups/Mock/messageflows"/></executionGroup><executionGroup
+        type="executionGroup" isRunning="false" runMode="stopped" isRestricted="false"
+        uri="/apiv1/executiongroups/NUUP" propertiesUri="/apiv1/executiongroups/NUUP/properties"
+        uuid="34aae10b-4a01-0000-0080-89e89aa87160" name="NUUP"><services type="services"
+        uri="/apiv1/executiongroups/NUUP/services"><service type="service" isRunning="false"
+        runMode="running" startMode="Maintained" hasChildren="true" uri="/apiv1/executiongroups/NUUP/services/InwardRemittanceByPartnerService"
+        propertiesUri="/apiv1/executiongroups/NUUP/services/InwardRemittanceByPartnerService/properties"
+        uuid="1596be51-4d01-0000-0080-cfd0ea1fa28c" name="InwardRemittanceByPartnerService"/><service
+        type="service" isRunning="false" runMode="running" startMode="Maintained"
+        hasChildren="true" uri="/apiv1/executiongroups/NUUP/services/FlexTestClient"
+        propertiesUri="/apiv1/executiongroups/NUUP/services/FlexTestClient/properties"
+        uuid="c080ad7f-4d01-0000-0080-de019700278c" name="FlexTestClient"/></services><applications
+        type="applications" uri="/apiv1/executiongroups/NUUP/applications"><application
+        type="application" isRunning="false" runMode="running" startMode="Maintained"
+        hasChildren="true" uri="/apiv1/executiongroups/NUUP/applications/MissedCallGateway.app"
+        propertiesUri="/apiv1/executiongroups/NUUP/applications/MissedCallGateway.app/properties"
+        uuid="effdee51-4e01-0000-0080-88a0b7b158a6" name="MissedCallGateway.app"/></applications><libraries
+        type="libraries" uri="/apiv1/executiongroups/NUUP/libraries"/><messageFlows
+        type="messageFlows" uri="/apiv1/executiongroups/NUUP/messageflows"/></executionGroup><executionGroup
+        type="executionGroup" isRunning="false" runMode="stopped" isRestricted="false"
+        uri="/apiv1/executiongroups/TCPIPHandshakeSampleExecutionGroup" propertiesUri="/apiv1/executiongroups/TCPIPHandshakeSampleExecutionGroup/properties"
+        uuid="d2569a29-4a01-0000-0080-96f2428e02b6" name="TCPIPHandshakeSampleExecutionGroup"><services
+        type="services" uri="/apiv1/executiongroups/TCPIPHandshakeSampleExecutionGroup/services"/><applications
+        type="applications" uri="/apiv1/executiongroups/TCPIPHandshakeSampleExecutionGroup/applications"/><libraries
+        type="libraries" uri="/apiv1/executiongroups/TCPIPHandshakeSampleExecutionGroup/libraries"/><messageFlows
+        type="messageFlows" uri="/apiv1/executiongroups/TCPIPHandshakeSampleExecutionGroup/messageflows"/></executionGroup><executionGroup
+        type="executionGroup" isRunning="false" runMode="stopped" isRestricted="false"
+        uri="/apiv1/executiongroups/HTTPHeaderNodeSampleExecutionGroup" propertiesUri="/apiv1/executiongroups/HTTPHeaderNodeSampleExecutionGroup/properties"
+        uuid="15e39a29-4a01-0000-0080-96f2428e02b6" name="HTTPHeaderNodeSampleExecutionGroup"><services
+        type="services" uri="/apiv1/executiongroups/HTTPHeaderNodeSampleExecutionGroup/services"/><applications
+        type="applications" uri="/apiv1/executiongroups/HTTPHeaderNodeSampleExecutionGroup/applications"/><libraries
+        type="libraries" uri="/apiv1/executiongroups/HTTPHeaderNodeSampleExecutionGroup/libraries"/><messageFlows
+        type="messageFlows" uri="/apiv1/executiongroups/HTTPHeaderNodeSampleExecutionGroup/messageflows"/></executionGroup><executionGroup
+        type="executionGroup" isRunning="true" runMode="running" isRestricted="false"
+        uri="/apiv1/executiongroups/aml" propertiesUri="/apiv1/executiongroups/aml/properties"
+        uuid="87a72543-4d01-0000-0080-92cb36a72e5a" name="aml"><services type="services"
+        uri="/apiv1/executiongroups/aml/services"><service type="service" isRunning="true"
+        runMode="running" startMode="Maintained" hasChildren="true" uri="/apiv1/executiongroups/aml/services/test"
+        propertiesUri="/apiv1/executiongroups/aml/services/test/properties" uuid="8faf02a6-4f01-0000-0080-8c8ca22aa21f"
+        name="test"/></services><applications type="applications" uri="/apiv1/executiongroups/aml/applications"><application
+        type="application" isRunning="true" runMode="running" startMode="Maintained"
+        hasChildren="true" uri="/apiv1/executiongroups/aml/applications/Example" propertiesUri="/apiv1/executiongroups/aml/applications/Example/properties"
+        uuid="3fe68245-4f01-0000-0080-8c8ca22aa21f" name="Example"/></applications><libraries
+        type="libraries" uri="/apiv1/executiongroups/aml/libraries"/><messageFlows
+        type="messageFlows" uri="/apiv1/executiongroups/aml/messageflows"/></executionGroup><executionGroup
+        type="executionGroup" isRunning="false" runMode="stopped" isRestricted="false"
+        uri="/apiv1/executiongroups/smtp" propertiesUri="/apiv1/executiongroups/smtp/properties"
+        uuid="2ff7b19d-4d01-0000-0080-e0d468e9a410" name="smtp"><services type="services"
+        uri="/apiv1/executiongroups/smtp/services"><service type="service" isRunning="false"
+        runMode="running" startMode="Maintained" hasChildren="true" uri="/apiv1/executiongroups/smtp/services/SendSMSService"
+        propertiesUri="/apiv1/executiongroups/smtp/services/SendSMSService/properties"
+        uuid="133b68b8-4d01-0000-0080-c9525aa6b7c9" name="SendSMSService"/><service
+        type="service" isRunning="false" runMode="running" startMode="Maintained"
+        hasChildren="true" uri="/apiv1/executiongroups/smtp/services/SendEmailService"
+        propertiesUri="/apiv1/executiongroups/smtp/services/SendEmailService/properties"
+        uuid="502426b9-4d01-0000-0080-c9525aa6b7c9" name="SendEmailService"/></services><applications
+        type="applications" uri="/apiv1/executiongroups/smtp/applications"><application
+        type="application" isRunning="false" runMode="running" startMode="Maintained"
+        hasChildren="true" uri="/apiv1/executiongroups/smtp/applications/SendSMS.app"
+        propertiesUri="/apiv1/executiongroups/smtp/applications/SendSMS.app/properties"
+        uuid="431f68b8-4d01-0000-0080-c9525aa6b7c9" name="SendSMS.app"/><application
+        type="application" isRunning="false" runMode="running" startMode="Maintained"
+        hasChildren="true" uri="/apiv1/executiongroups/smtp/applications/SendEmail.app"
+        propertiesUri="/apiv1/executiongroups/smtp/applications/SendEmail.app/properties"
+        uuid="813f26b9-4d01-0000-0080-c9525aa6b7c9" name="SendEmail.app"/></applications><libraries
+        type="libraries" uri="/apiv1/executiongroups/smtp/libraries"><library type="library"
+        hasChildren="false" uri="/apiv1/executiongroups/smtp/libraries/SendSMS.lib"
+        propertiesUri="/apiv1/executiongroups/smtp/libraries/SendSMS.lib/properties"
+        uuid="465368b8-4d01-0000-0080-c9525aa6b7c9" name="SendSMS.lib"/><library type="library"
+        hasChildren="false" uri="/apiv1/executiongroups/smtp/libraries/UDPManager"
+        propertiesUri="/apiv1/executiongroups/smtp/libraries/UDPManager/properties"
+        uuid="4e5368b8-4d01-0000-0080-c9525aa6b7c9" name="UDPManager"/></libraries><messageFlows
+        type="messageFlows" uri="/apiv1/executiongroups/smtp/messageflows"/></executionGroup><executionGroup
+        type="executionGroup" isRunning="false" runMode="stopped" isRestricted="false"
+        uri="/apiv1/executiongroups/PagerExecutionGroup" propertiesUri="/apiv1/executiongroups/PagerExecutionGroup/properties"
+        uuid="5e3cc0f2-4e01-0000-0080-d9f5f93f5403" name="PagerExecutionGroup"><services
+        type="services" uri="/apiv1/executiongroups/PagerExecutionGroup/services"/><applications
+        type="applications" uri="/apiv1/executiongroups/PagerExecutionGroup/applications"/><libraries
+        type="libraries" uri="/apiv1/executiongroups/PagerExecutionGroup/libraries"/><messageFlows
+        type="messageFlows" uri="/apiv1/executiongroups/PagerExecutionGroup/messageflows"><messageFlow
+        type="messageFlow" isRunning="false" runMode="running" startMode="Maintained"
+        flowDesignUri="/apiv1/executiongroups/PagerExecutionGroup/messageflows/TextMessenger/flowdesign"
+        uri="/apiv1/executiongroups/PagerExecutionGroup/messageflows/TextMessenger"
+        propertiesUri="/apiv1/executiongroups/PagerExecutionGroup/messageflows/TextMessenger/properties"
+        uuid="e34bc0f2-4e01-0000-0080-bce4db72f964" name="TextMessenger"/><messageFlow
+        type="messageFlow" isRunning="false" runMode="running" startMode="Maintained"
+        flowDesignUri="/apiv1/executiongroups/PagerExecutionGroup/messageflows/SurfWatch/flowdesign"
+        uri="/apiv1/executiongroups/PagerExecutionGroup/messageflows/SurfWatch" propertiesUri="/apiv1/executiongroups/PagerExecutionGroup/messageflows/SurfWatch/properties"
+        uuid="eb4bc0f2-4e01-0000-0080-bce4db72f964" name="SurfWatch"/></messageFlows></executionGroup></executionGroups>
+    http_version: 
+  recorded_at: Wed, 09 Sep 2015 05:58:16 GMT
+- request:
+    method: get
+    uri: http://10.211.55.4:4414/apiv1/executiongroups/test/?depth=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Cache-Control:
+      - max-age=0
+      Expires:
+      - Wed, 09 Sep 2015 03:33:44 GMT
+      Content-Type:
+      - application/xml
+      Content-Length:
+      - '324'
+      Date:
+      - Wed, 09 Sep 2015 03:33:44 GMT
+    body:
+      encoding: UTF-8
+      string: '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><exception><bipNumber>1038</bipNumber><description>The
+        executiongroup ''test'' does not exist</description><bipInserts><bipInserts>test</bipInserts></bipInserts><cause>com.ibm.broker.admin.ImbWebAdminException:
+        The executiongroup ''test'' does not exist</cause></exception>'
+    http_version: 
+  recorded_at: Wed, 09 Sep 2015 06:03:45 GMT
+recorded_with: VCR 2.9.3

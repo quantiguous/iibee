@@ -4,24 +4,32 @@ require 'oga'
 module Iibee
   class Service
     class Properties
-      attr_reader :processId, :traceLevel, :soapNodesUseEmbeddedListener, :compiledXPathCacheSizeEntries, :consoleMode, :httpNodesUseEmbeddedListener, :inactiveUserExitList, :activeUserExitList, :traceNodeLevel, :userTraceLevel
-      def initialize(document)
-        document.xpath('properties/advancedProperties/property').each do |advancedProperty|
+      attr_reader :label, :runMode, :uuid, :isRunning, :shortDesc, :longDesc, :processId, :traceLevel, :soapNodesUseEmbeddedListener, 
+                  :compiledXPathCacheSizeEntries, :consoleMode, :httpNodesUseEmbeddedListener, :inactiveUserExitList, :activeUserExitList, 
+                  :traceNodeLevel, :userTraceLevel, :modifyTime, :deployTime, :barFileName
+      def initialize(document)        
+        document.xpath('properties/*/property').each do |property|
           
-          propertyName = advancedProperty.get('name')
-          propertyValue = advancedProperty.get('value')
+          propertyName = property.get('name')
+          propertyValue = property.get('value')
           instance_variable_set("@#{propertyName}", propertyValue)
-        end
+        end 
       end
     end
     CONTEXT_PATH = "apiv1/executiongroups"
     
-    attr_reader :type, :isRunning, :runMode, :startMode, :hasChildren, :uuid, :name, :propertiesUri
+    attr_reader :type, :isRunning, :runMode, :startMode, :hasChildren, :uuid, :name, :propertiesUri, :executionGroupName
+    attr_accessor :uuid, :name
     
-    def initialize(document)
-      document.xpath('service/@*').each do |attribute|        
+    def initialize(document, executionGroupName)
+      document.xpath('@*').each do |attribute|        
         instance_variable_set("@#{attribute.name}", attribute.value)
       end
+      @executionGroupName = executionGroupName
+    end
+    
+    def executionGroup
+      Iibee::ExecutionGroup.find_by(name: executionGroupName)
     end
     
     def properties
@@ -30,20 +38,27 @@ module Iibee
       @properties = Iibee::Service::Properties.new(document)
     end
     
-    def self.all(egName)
-      services = []
-      response = Faraday.get("#{Iibee.configuration.base_url}/#{CONTEXT_PATH}/#{egName}/services/")
-      p "#{Iibee.configuration.base_url}/#{CONTEXT_PATH}/#{egName}/services/"
-      document = Oga.parse_xml(response.body)
-      document.xpath('services/service').each do |service|
-          services << new(document)  
-      end
+    def self.find_by(executionGroupName: nil, name: nil)
+      where(executionGroupName: executionGroupName, name: name).first
     end
     
-    def self.find_by_name(egName, name)
-      response = Faraday.get("#{Iibee.configuration.base_url}/#{CONTEXT_PATH}/#{egName}/services/#{name}")
+    def self.where(executionGroupName: nil, name: nil) 
+      services = []
+      
+      unless executionGroupName.nil?
+        service_url = "#{Iibee.configuration.base_url}/#{CONTEXT_PATH}/#{executionGroupName}/?depth=2"
+      else
+        service_url = "#{Iibee.configuration.base_url}/#{CONTEXT_PATH}/?depth=3"
+      end
+      
+      response = Faraday.get(service_url)
       document = Oga.parse_xml(response.body)
-      new(document)        
+
+      document.xpath("//service[@name='#{name}']").each do |service|
+        services << new(service, document.at_xpath("//executionGroup[services/service/@uuid = '#{service.get('uuid')}']").get('name'))
+      end
+      
+      return services
     end
   end
 end
