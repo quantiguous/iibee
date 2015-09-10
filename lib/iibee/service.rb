@@ -18,7 +18,7 @@ module Iibee
     end
     CONTEXT_PATH = "apiv1/executiongroups"
     
-    attr_reader :type, :isRunning, :runMode, :startMode, :hasChildren, :uuid, :name, :propertiesUri, :executionGroupName
+    attr_reader :type, :isRunning, :runMode, :startMode, :hasChildren, :uuid, :name, :propertiesUri, :executionGroupName, :options
     
     def initialize(document, executionGroupName, options)
       document.xpath('@*').each do |attribute|        
@@ -33,7 +33,7 @@ module Iibee
     end
     
     def properties
-      url = "#{self.options[:scheme]}://#{self.options[:host]}:#{self.options[:port]}".chomp(":")
+      url = "#{options[:scheme]}://#{options[:host]}:#{options[:port]}".chomp(":")
       response = Faraday.get("#{url}/#{self.propertiesUri}")
       document = Oga.parse_xml(response.body)
       @properties = Iibee::Service::Properties.new(document)
