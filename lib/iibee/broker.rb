@@ -1,5 +1,6 @@
 require 'faraday'
 require 'oga'
+require 'logger'
 
 module Iibee
   class Broker
@@ -26,10 +27,11 @@ module Iibee
       
     end
     
-    def self.find(id)
-      response = Faraday.get("#{Iibee.configuration.base_url}#{CONTEXT_PATH}")
+    def self.find_by(options: {})
+      url = "#{options[:scheme]}://#{options[:host]}:#{options[:port]}".chomp(":")
+      response = Faraday.get("#{url}#{CONTEXT_PATH}")
       document = Oga.parse_xml(response.body)
       new(document)
-    end    
+    end 
   end
 end

@@ -19,41 +19,45 @@ module Iibee
     
     CONTEXT_PATH = "/apiv1/executiongroups/"
     
-    attr_reader :isRunning, :runMode, :isRestricted, :hasChildren, :uri, :propertiesUri, :uuid, :name
+    attr_reader :isRunning, :runMode, :isRestricted, :hasChildren, :uri, :propertiesUri, :uuid, :name, :options
   
-    def initialize(document)
+    def initialize(document, options)
       document.xpath('@*').each do |attribute|
         instance_variable_set("@#{attribute.name}", cast_value(attribute.name, attribute.value))
       end
+      @options = options
     end
     
     def properties
-      response = Faraday.get("#{Iibee.configuration.base_url}/#{self.propertiesUri}")
+      url = "#{options[:scheme]}://#{options[:host]}:#{options[:port]}".chomp(":")
+      response = Faraday.get("#{url}/#{self.propertiesUri}")
       document = Oga.parse_xml(response.body)
       @properties = Iibee::ExecutionGroup::Properties.new(document)
     end
     
-    def self.all
+    def self.all(options: {})      
       egs = []
-      response = Faraday.get("#{Iibee.configuration.base_url}/#{CONTEXT_PATH}/")
+      url = "#{options[:scheme]}://#{options[:host]}:#{options[:port]}".chomp(":")
+      response = Faraday.get("#{url}/#{CONTEXT_PATH}/")
       document = Oga.parse_xml(response.body)
       document.xpath('executionGroups/executionGroup').each do |eg|
-        egs << new(eg)  
+        egs << new(eg, options)  
       end
       return egs
     end
     
-    def self.find_by(name: nil)
-      where(name: name).first
+    def self.find_by(name: nil, options: {})
+      where(name: name, options: options).first
     end
     
-    def self.where(name: nil)
+    def self.where(name: nil, options: {})
       egs = []
+      url = "#{options[:scheme]}://#{options[:host]}:#{options[:port]}".chomp(":")
       unless name.nil?
-        response = Faraday.get("#{Iibee.configuration.base_url}/#{CONTEXT_PATH}/#{name}")
+        response = Faraday.get("#{url}/#{CONTEXT_PATH}/#{name}")
         document = Oga.parse_xml(response.body)
         document.xpath("//executionGroup[@name='#{name}']").each do |eg|
-          egs << new(eg)  
+          egs << new(eg, options)  
         end
       end
       return egs
