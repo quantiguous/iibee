@@ -1,0 +1,132 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://wmbadmin1:wmbadmin1pw@10.211.55.7:4424/apiv1/executiongroups/aml/?depth=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Cache-Control:
+      - private
+      Expires:
+      - Thu, 01 Jan 1970 05:30:00 IST
+      Set-Cookie:
+      - JSESSIONID=827EE9A266D4C3AD67F41D763837C688; Path=/apiv1/; HttpOnly
+      - JSESSIONIDSSO=7AA6922B38066108DBF4F34E033C4A76; Path=/; HttpOnly
+      Content-Type:
+      - application/xml
+      Content-Length:
+      - '2183'
+      Date:
+      - Fri, 11 Sep 2015 00:14:53 GMT
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><executionGroup
+        type="executionGroup" isRunning="true" runMode="running" isRestricted="false"
+        uri="/apiv1/executiongroups/aml" propertiesUri="/apiv1/executiongroups/aml/properties"
+        uuid="87a72543-4d01-0000-0080-92cb36a72e5a" name="aml"><services type="services"
+        uri="/apiv1/executiongroups/aml/services"><service type="service" isRunning="true"
+        runMode="running" startMode="Maintained" hasChildren="true" uri="/apiv1/executiongroups/aml/services/SocialBankingService"
+        propertiesUri="/apiv1/executiongroups/aml/services/SocialBankingService/properties"
+        uuid="3204c2b5-4e01-0000-0080-bce4db72f964" name="SocialBankingService"/><service
+        type="service" isRunning="true" runMode="running" startMode="Maintained" hasChildren="true"
+        uri="/apiv1/executiongroups/aml/services/fin" propertiesUri="/apiv1/executiongroups/aml/services/fin/properties"
+        uuid="58dc4901-4f01-0000-0080-bce4db72f964" name="fin"/><service type="service"
+        isRunning="true" runMode="running" startMode="Maintained" hasChildren="true"
+        uri="/apiv1/executiongroups/aml/services/TestEquifax" propertiesUri="/apiv1/executiongroups/aml/services/TestEquifax/properties"
+        uuid="b8828a69-4f01-0000-0080-fab99c41b02c" name="TestEquifax"/></services><applications
+        type="applications" uri="/apiv1/executiongroups/aml/applications"><application
+        type="application" isRunning="false" runMode="stopped" startMode="Maintained"
+        hasChildren="true" uri="/apiv1/executiongroups/aml/applications/ECollect.DishTV.app"
+        propertiesUri="/apiv1/executiongroups/aml/applications/ECollect.DishTV.app/properties"
+        uuid="f9e7cff7-4e01-0000-0080-bce4db72f964" name="ECollect.DishTV.app"/><application
+        type="application" isRunning="true" runMode="running" startMode="Maintained"
+        hasChildren="true" uri="/apiv1/executiongroups/aml/applications/ECollect.CESC.app"
+        propertiesUri="/apiv1/executiongroups/aml/applications/ECollect.CESC.app/properties"
+        uuid="9cf7cff7-4e01-0000-0080-bce4db72f964" name="ECollect.CESC.app"/></applications><libraries
+        type="libraries" uri="/apiv1/executiongroups/aml/libraries"/><messageFlows
+        type="messageFlows" uri="/apiv1/executiongroups/aml/messageflows"/></executionGroup>
+    http_version: 
+  recorded_at: Fri, 11 Sep 2015 01:14:54 GMT
+- request:
+    method: get
+    uri: http://10.211.55.7:4424/apiv1/executiongroups/aml/?depth=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Cache-Control:
+      - max-age=0
+      Expires:
+      - Fri, 11 Sep 2015 00:16:52 GMT
+      Content-Type:
+      - application/xml
+      Content-Length:
+      - '2183'
+      Date:
+      - Fri, 11 Sep 2015 00:16:52 GMT
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><executionGroup
+        type="executionGroup" isRunning="true" runMode="running" isRestricted="false"
+        uri="/apiv1/executiongroups/aml" propertiesUri="/apiv1/executiongroups/aml/properties"
+        uuid="87a72543-4d01-0000-0080-92cb36a72e5a" name="aml"><services type="services"
+        uri="/apiv1/executiongroups/aml/services"><service type="service" isRunning="true"
+        runMode="running" startMode="Maintained" hasChildren="true" uri="/apiv1/executiongroups/aml/services/SocialBankingService"
+        propertiesUri="/apiv1/executiongroups/aml/services/SocialBankingService/properties"
+        uuid="3204c2b5-4e01-0000-0080-bce4db72f964" name="SocialBankingService"/><service
+        type="service" isRunning="true" runMode="running" startMode="Maintained" hasChildren="true"
+        uri="/apiv1/executiongroups/aml/services/fin" propertiesUri="/apiv1/executiongroups/aml/services/fin/properties"
+        uuid="58dc4901-4f01-0000-0080-bce4db72f964" name="fin"/><service type="service"
+        isRunning="true" runMode="running" startMode="Maintained" hasChildren="true"
+        uri="/apiv1/executiongroups/aml/services/TestEquifax" propertiesUri="/apiv1/executiongroups/aml/services/TestEquifax/properties"
+        uuid="b8828a69-4f01-0000-0080-fab99c41b02c" name="TestEquifax"/></services><applications
+        type="applications" uri="/apiv1/executiongroups/aml/applications"><application
+        type="application" isRunning="false" runMode="stopped" startMode="Maintained"
+        hasChildren="true" uri="/apiv1/executiongroups/aml/applications/ECollect.DishTV.app"
+        propertiesUri="/apiv1/executiongroups/aml/applications/ECollect.DishTV.app/properties"
+        uuid="f9e7cff7-4e01-0000-0080-bce4db72f964" name="ECollect.DishTV.app"/><application
+        type="application" isRunning="true" runMode="running" startMode="Maintained"
+        hasChildren="true" uri="/apiv1/executiongroups/aml/applications/ECollect.CESC.app"
+        propertiesUri="/apiv1/executiongroups/aml/applications/ECollect.CESC.app/properties"
+        uuid="9cf7cff7-4e01-0000-0080-bce4db72f964" name="ECollect.CESC.app"/></applications><libraries
+        type="libraries" uri="/apiv1/executiongroups/aml/libraries"/><messageFlows
+        type="messageFlows" uri="/apiv1/executiongroups/aml/messageflows"/></executionGroup>
+    http_version: 
+  recorded_at: Fri, 11 Sep 2015 01:16:53 GMT
+recorded_with: VCR 2.9.3

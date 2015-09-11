@@ -1,0 +1,104 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://wmbadmin1:wmbadmin1pw@10.211.55.7:4424/apiv1/executiongroups/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Cache-Control:
+      - private
+      Expires:
+      - Thu, 01 Jan 1970 05:30:00 IST
+      Set-Cookie:
+      - JSESSIONID=3F93AF8288F24C0B951D0A608FE15858; Path=/apiv1/; HttpOnly
+      - JSESSIONIDSSO=B29F20D4EDD52A6C726C8856CDF3C8C7; Path=/; HttpOnly
+      Content-Type:
+      - application/xml
+      Content-Length:
+      - '908'
+      Date:
+      - Fri, 11 Sep 2015 00:14:58 GMT
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><executionGroups
+        type="executionGroups" uri="/apiv1/executiongroups"><executionGroup type="executionGroup"
+        isRunning="false" runMode="stopped" isRestricted="true" hasChildren="false"
+        uri="/apiv1/executiongroups/Q" propertiesUri="/apiv1/executiongroups/Q/properties"
+        uuid="1b14c722-4801-0000-0080-8109094bcb44" name="Q"/><executionGroup type="executionGroup"
+        isRunning="true" runMode="running" isRestricted="false" hasChildren="true"
+        uri="/apiv1/executiongroups/Mock" propertiesUri="/apiv1/executiongroups/Mock/properties"
+        uuid="212a9a1e-4901-0000-0080-e7321e7ebaa6" name="Mock"/><executionGroup type="executionGroup"
+        isRunning="true" runMode="running" isRestricted="false" hasChildren="true"
+        uri="/apiv1/executiongroups/aml" propertiesUri="/apiv1/executiongroups/aml/properties"
+        uuid="87a72543-4d01-0000-0080-92cb36a72e5a" name="aml"/></executionGroups>
+    http_version: 
+  recorded_at: Fri, 11 Sep 2015 01:14:58 GMT
+- request:
+    method: get
+    uri: http://10.211.55.7:4424/apiv1/executiongroups/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Cache-Control:
+      - max-age=0
+      Expires:
+      - Fri, 11 Sep 2015 00:16:55 GMT
+      Content-Type:
+      - application/xml
+      Content-Length:
+      - '908'
+      Date:
+      - Fri, 11 Sep 2015 00:16:55 GMT
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><executionGroups
+        type="executionGroups" uri="/apiv1/executiongroups"><executionGroup type="executionGroup"
+        isRunning="false" runMode="stopped" isRestricted="false" hasChildren="true"
+        uri="/apiv1/executiongroups/Q" propertiesUri="/apiv1/executiongroups/Q/properties"
+        uuid="1b14c722-4801-0000-0080-8109094bcb44" name="Q"/><executionGroup type="executionGroup"
+        isRunning="true" runMode="running" isRestricted="false" hasChildren="true"
+        uri="/apiv1/executiongroups/Mock" propertiesUri="/apiv1/executiongroups/Mock/properties"
+        uuid="212a9a1e-4901-0000-0080-e7321e7ebaa6" name="Mock"/><executionGroup type="executionGroup"
+        isRunning="true" runMode="running" isRestricted="false" hasChildren="true"
+        uri="/apiv1/executiongroups/aml" propertiesUri="/apiv1/executiongroups/aml/properties"
+        uuid="87a72543-4d01-0000-0080-92cb36a72e5a" name="aml"/></executionGroups>
+    http_version: 
+  recorded_at: Fri, 11 Sep 2015 01:16:56 GMT
+recorded_with: VCR 2.9.3
