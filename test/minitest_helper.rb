@@ -16,3 +16,7 @@ VCR.configure do |c|
   c.hook_into :webmock
   c.default_cassette_options = {:record => :new_episodes}
 end
+
+class Minitest::Test
+  @@broker_spec = {:scheme => 'http', :host => '10.211.55.7', :port => 4424, :user => 'wmbadmin1', :password => 'wmbadmin1pw'}
+end

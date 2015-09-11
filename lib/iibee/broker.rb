@@ -28,8 +28,7 @@ module Iibee
     end
     
     def self.find_by(options: {})
-      url = "#{options[:scheme]}://#{options[:host]}:#{options[:port]}".chomp(":")
-      response = Faraday.get("#{url}#{CONTEXT_PATH}")
+      response = Iibee::Connection.new(options: options).get(CONTEXT_PATH)
       document = Oga.parse_xml(response.body)
       new(document)
     end 

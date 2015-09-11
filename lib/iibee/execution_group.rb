@@ -1,4 +1,3 @@
-require 'faraday'
 require 'oga'
 
 module Iibee
@@ -29,16 +28,14 @@ module Iibee
     end
     
     def properties
-      url = "#{options[:scheme]}://#{options[:host]}:#{options[:port]}".chomp(":")
-      response = Faraday.get("#{url}/#{self.propertiesUri}")
+      response = Iibee::Connection.new(options: options).get("#{self.propertiesUri}")
       document = Oga.parse_xml(response.body)
       @properties = Iibee::ExecutionGroup::Properties.new(document)
     end
     
     def self.all(options: {})      
       egs = []
-      url = "#{options[:scheme]}://#{options[:host]}:#{options[:port]}".chomp(":")
-      response = Faraday.get("#{url}/#{CONTEXT_PATH}/")
+      response = Iibee::Connection.new(options: options).get(CONTEXT_PATH)
       document = Oga.parse_xml(response.body)
       document.xpath('executionGroups/executionGroup').each do |eg|
         egs << new(eg, options)  
@@ -52,9 +49,8 @@ module Iibee
     
     def self.where(name: nil, options: {})
       egs = []
-      url = "#{options[:scheme]}://#{options[:host]}:#{options[:port]}".chomp(":")
       unless name.nil?
-        response = Faraday.get("#{url}/#{CONTEXT_PATH}/#{name}")
+        response = Iibee::Connection.new(options: options).get("#{CONTEXT_PATH}/#{name}")
         document = Oga.parse_xml(response.body)
         document.xpath("//executionGroup[@name='#{name}']").each do |eg|
           egs << new(eg, options)  

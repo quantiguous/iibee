@@ -1,4 +1,3 @@
-require 'faraday'
 require 'oga'
 
 module Iibee
@@ -33,8 +32,7 @@ module Iibee
     end
     
     def properties
-      url = "#{options[:scheme]}://#{options[:host]}:#{options[:port]}".chomp(":")
-      response = Faraday.get("#{url}/#{self.propertiesUri}")
+      response = Iibee::Connection.new(options: options).get("#{self.propertiesUri}")
       document = Oga.parse_xml(response.body)
       @properties = Iibee::Service::Properties.new(document)
     end
@@ -45,8 +43,6 @@ module Iibee
     
     def self.where(executionGroupName: nil, name: nil, options: {}) 
       services = []
-
-      url = "#{options[:scheme]}://#{options[:host]}:#{options[:port]}".chomp(":")
       
       unless executionGroupName.nil?
         service_url = "/#{CONTEXT_PATH}/#{executionGroupName}/?depth=2"
@@ -54,7 +50,7 @@ module Iibee
         service_url = "/#{CONTEXT_PATH}/?depth=3"
       end
       
-      response = Faraday.get(url+service_url)
+      response = Iibee::Connection.new(options: options).get(service_url)
       document = Oga.parse_xml(response.body)
       
       document.xpath("//service[@name='#{name}']").each do |service|
