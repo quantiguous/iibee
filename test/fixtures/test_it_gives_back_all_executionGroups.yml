@@ -2,56 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://wmbadmin1:wmbadmin1pw@10.211.55.7:4424/apiv1/executiongroups/aml
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.9.1
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      Connection:
-      - keep-alive
-      Keep-Alive:
-      - 30
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Apache-Coyote/1.1
-      Cache-Control:
-      - private
-      Expires:
-      - Thu, 01 Jan 1970 05:30:00 IST
-      Set-Cookie:
-      - JSESSIONID=B77E5C0D4C97B58C2857C1038FF749C9; Path=/apiv1/; HttpOnly
-      - JSESSIONIDSSO=7845DB62FA9A1C23548471395CB2D74A; Path=/; HttpOnly
-      Content-Type:
-      - application/xml
-      Content-Length:
-      - '689'
-      Date:
-      - Fri, 11 Sep 2015 00:14:55 GMT
-    body:
-      encoding: UTF-8
-      string: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><executionGroup
-        type="executionGroup" isRunning="true" runMode="running" isRestricted="false"
-        uri="/apiv1/executiongroups/aml" propertiesUri="/apiv1/executiongroups/aml/properties"
-        uuid="87a72543-4d01-0000-0080-92cb36a72e5a" name="aml"><services type="services"
-        uri="/apiv1/executiongroups/aml/services" hasChildren="true"/><applications
-        type="applications" uri="/apiv1/executiongroups/aml/applications" hasChildren="true"/><libraries
-        type="libraries" uri="/apiv1/executiongroups/aml/libraries" hasChildren="false"/><messageFlows
-        type="messageFlows" uri="/apiv1/executiongroups/aml/messageflows" hasChildren="false"/></executionGroup>
-    http_version: 
-  recorded_at: Fri, 11 Sep 2015 01:14:56 GMT
-- request:
-    method: get
-    uri: http://10.211.55.7:4424/apiv1/executiongroups/aml
+    uri: http://10.211.55.4:4414/apiv1/executiongroups/
     body:
       encoding: US-ASCII
       string: ''
@@ -76,25 +27,25 @@ http_interactions:
       Cache-Control:
       - max-age=0
       Expires:
-      - Fri, 11 Sep 2015 00:16:57 GMT
+      - Sat, 12 Sep 2015 13:01:45 GMT
       Content-Type:
       - application/xml
       Content-Length:
-      - '689'
+      - '657'
       Date:
-      - Fri, 11 Sep 2015 00:16:56 GMT
+      - Sat, 12 Sep 2015 13:01:45 GMT
     body:
       encoding: UTF-8
-      string: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><executionGroup
-        type="executionGroup" isRunning="true" runMode="running" isRestricted="false"
+      string: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><executionGroups
+        type="executionGroups" uri="/apiv1/executiongroups"><executionGroup type="executionGroup"
+        isRunning="true" runMode="running" isRestricted="false" hasChildren="true"
+        uri="/apiv1/executiongroups/Mock" propertiesUri="/apiv1/executiongroups/Mock/properties"
+        uuid="212a9a1e-4901-0000-0080-e7321e7ebaa6" name="Mock"/><executionGroup type="executionGroup"
+        isRunning="true" runMode="running" isRestricted="false" hasChildren="true"
         uri="/apiv1/executiongroups/aml" propertiesUri="/apiv1/executiongroups/aml/properties"
-        uuid="87a72543-4d01-0000-0080-92cb36a72e5a" name="aml"><services type="services"
-        uri="/apiv1/executiongroups/aml/services" hasChildren="true"/><applications
-        type="applications" uri="/apiv1/executiongroups/aml/applications" hasChildren="true"/><libraries
-        type="libraries" uri="/apiv1/executiongroups/aml/libraries" hasChildren="false"/><messageFlows
-        type="messageFlows" uri="/apiv1/executiongroups/aml/messageflows" hasChildren="false"/></executionGroup>
+        uuid="87a72543-4d01-0000-0080-92cb36a72e5a" name="aml"/></executionGroups>
     http_version: 
-  recorded_at: Fri, 11 Sep 2015 01:16:58 GMT
+  recorded_at: Sat, 12 Sep 2015 13:01:45 GMT
 - request:
     method: get
     uri: http://10.211.55.4:4414/apiv1/executiongroups/aml
@@ -122,13 +73,13 @@ http_interactions:
       Cache-Control:
       - max-age=0
       Expires:
-      - Sat, 12 Sep 2015 11:08:10 GMT
+      - Sat, 12 Sep 2015 13:01:47 GMT
       Content-Type:
       - application/xml
       Content-Length:
       - '689'
       Date:
-      - Sat, 12 Sep 2015 11:08:10 GMT
+      - Sat, 12 Sep 2015 13:01:46 GMT
     body:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><executionGroup
@@ -140,5 +91,54 @@ http_interactions:
         type="libraries" uri="/apiv1/executiongroups/aml/libraries" hasChildren="false"/><messageFlows
         type="messageFlows" uri="/apiv1/executiongroups/aml/messageflows" hasChildren="false"/></executionGroup>
     http_version: 
-  recorded_at: Sat, 12 Sep 2015 11:08:10 GMT
+  recorded_at: Sat, 12 Sep 2015 13:01:47 GMT
+- request:
+    method: get
+    uri: http://10.211.55.4:4414/apiv1/executiongroups/aml/properties
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Cache-Control:
+      - max-age=0
+      Expires:
+      - Sat, 12 Sep 2015 13:01:47 GMT
+      Content-Type:
+      - application/xml
+      Content-Length:
+      - '979'
+      Date:
+      - Sat, 12 Sep 2015 13:01:47 GMT
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><properties uri="/apiv1/executiongroups/aml/properties"><basicProperties><property
+        name="label" value="aml"/><property name="runMode" value="running"/><property
+        name="uuid" value="87a72543-4d01-0000-0080-92cb36a72e5a"/><property name="isRunning"
+        value="true"/><property name="shortDesc" value=""/><property name="longDesc"
+        value=""/></basicProperties><advancedProperties><property name="processId"
+        value="30316"/><property name="traceLevel" value="none"/><property name="soapNodesUseEmbeddedListener"
+        value="false"/><property name="compiledXPathCacheSizeEntries" value="100"/><property
+        name="consoleMode" value="off"/><property name="httpNodesUseEmbeddedListener"
+        value="false"/><property name="inactiveUserExitList" value=""/><property name="activeUserExitList"
+        value=""/><property name="traceNodeLevel" value="on"/><property name="userTraceLevel"
+        value="debugTrace"/></advancedProperties><deployedProperties/></properties>
+    http_version: 
+  recorded_at: Sat, 12 Sep 2015 13:01:48 GMT
 recorded_with: VCR 2.9.3
