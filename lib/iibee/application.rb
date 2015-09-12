@@ -16,33 +16,47 @@ module Iibee
     end
     CONTEXT_PATH = "apiv1/executiongroups"
     
-    attr_reader :type, :isRunning, :runMode, :startMode, :hasChildren, :uuid, :name, :propertiesUri
+    attr_reader :type, :isRunning, :runMode, :startMode, :hasChildren, :uuid, :name, :propertiesUri, :executionGroupName, :options
     
-    def initialize(document)
-      document.xpath('application/@*').each do |attribute|        
+    def initialize(document, executionGroupName, options)
+      document.xpath('@*').each do |attribute|        
         instance_variable_set("@#{attribute.name}", attribute.value)
       end
+      @executionGroupName = executionGroupName
+      @options = options
+    end
+    
+    def executionGroup
+      Iibee::ExecutionGroup.find_by(name: executionGroupName, options: @options)
     end
     
     def properties
-      response = Faraday.get("#{Iibee.configuration.base_url}/#{self.propertiesUri}")
+      response = Iibee::Connection.new(options: options).get("#{self.propertiesUri}")
       document = Oga.parse_xml(response.body)
       @properties = Iibee::Application::Properties.new(document)
     end
     
-    def self.all(egName)
-      applications = []
-      response = Faraday.get("#{Iibee.configuration.base_url}/#{CONTEXT_PATH}/#{egName}/applications/")
-      document = Oga.parse_xml(response.body)
-      document.xpath('applications/application').each do |application|
-          applications << new(document)  
-      end
+    def self.find_by(executionGroupName: nil, name: nil, options: {})
+      where(executionGroupName: executionGroupName, name: name, options: options).first
     end
     
-    def self.find_by_name(egName, name)
-      response = Faraday.get("#{Iibee.configuration.base_url}/#{CONTEXT_PATH}/#{egName}/applications/#{name}")
+    def self.where(executionGroupName: nil, name: nil, options: {}) 
+      applications = []
+      
+      unless executionGroupName.nil?
+        application_url = "/#{CONTEXT_PATH}/#{executionGroupName}/?depth=2"
+      else
+        application_url = "/#{CONTEXT_PATH}/?depth=3"
+      end
+      
+      response = Iibee::Connection.new(options: options).get(application_url)
       document = Oga.parse_xml(response.body)
-      new(document)        
+      
+      document.xpath("//application[@name='#{name}']").each do |application|
+        applications << new(application, application.parent.parent.get('name'), options)
+      end
+      
+      return applications
     end
   end
 end

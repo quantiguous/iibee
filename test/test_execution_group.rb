@@ -21,7 +21,7 @@ class TestExecutionGroup < Minitest::Test
   
   def test_it_gives_back_all_executionGroups
     VCR.use_cassette('TestExecutionGroup_test_it_gives_back_all_executionGroups') do
-      expectedExecutionGroups = ["Mock", "aml", "Q"]
+      expectedExecutionGroups = ["Mock", "aml"]
 
       executionGroups = Iibee::ExecutionGroup.all(options: @@broker_spec)
       executionGroups.each do |executionGroup|
