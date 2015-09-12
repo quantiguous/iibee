@@ -54,7 +54,7 @@ module Iibee
       document = Oga.parse_xml(response.body)
       
       document.xpath("//service[@name='#{name}']").each do |service|
-        services << new(service, document.at_xpath("//executionGroup[services/service/@uuid = '#{service.get('uuid')}']").get('name'), options)
+        services << new(service, service.parent.parent.get('name'), options)
       end
       
       return services
