@@ -4,12 +4,14 @@ require 'oga'
 module Iibee
   class Application
     class Properties
-      attr_reader :processId, :traceLevel, :soapNodesUseEmbeddedListener, :compiledXPathCacheSizeEntries, :consoleMode, :httpNodesUseEmbeddedListener, :inactiveUserExitList, :activeUserExitList, :traceNodeLevel, :userTraceLevel
+      attr_reader :version, :label, :runMode, :uuid, :isRunning, :shortDesc, :longDesc, :processId, :traceLevel, :soapNodesUseEmbeddedListener, 
+                  :compiledXPathCacheSizeEntries, :consoleMode, :httpNodesUseEmbeddedListener, :inactiveUserExitList, :activeUserExitList, 
+                  :traceNodeLevel, :userTraceLevel, :modifyTime, :deployTime, :barFileName
       def initialize(document)
-        document.xpath('properties/advancedProperties/property').each do |advancedProperty|
+        document.xpath('properties/*/property').each do |property|
           
-          propertyName = advancedProperty.get('name')
-          propertyValue = advancedProperty.get('value')
+          propertyName = property.get('name')
+          propertyValue = property.get('value')
           instance_variable_set("@#{propertyName}", propertyValue)
         end
       end
