@@ -59,5 +59,17 @@ module Iibee
       
       return services
     end
+    
+    def perform(action)
+      response = Iibee::Connection.new(options: options).put("#{CONTEXT_PATH}/#{executionGroupName}/services/#{name}?action=#{action}")
+    end
+    
+    def start
+      response = Iibee::Connection.new(options: options).put("#{CONTEXT_PATH}/#{executionGroupName}/services/#{name}?action=start")
+    end
+    
+    def stop
+      response = Iibee::Connection.new(options: options).put("#{CONTEXT_PATH}/#{executionGroupName}/services/#{name}?action=stop")
+    end
   end
 end

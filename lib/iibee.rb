@@ -5,6 +5,7 @@ require "iibee/broker"
 require "iibee/execution_group"
 require "iibee/service"
 require "iibee/application"
+require "iibee/message_flow"
 
 module Iibee
 

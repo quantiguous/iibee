@@ -1,4 +1,5 @@
 require 'oga'
+require 'uri'
 
 module Iibee
   class ExecutionGroup
@@ -57,6 +58,18 @@ module Iibee
         end
       end
       return egs
+    end
+    
+    def perform(action)
+      response = Iibee::Connection.new(options: options).put("#{CONTEXT_PATH}/#{name}?action=#{action}")
+    end
+    
+    def start
+      response = Iibee::Connection.new(options: options).put("#{CONTEXT_PATH}/#{name}?action=start")
+    end
+    
+    def stop
+      response = Iibee::Connection.new(options: options).put("#{CONTEXT_PATH}/#{name}?action=stop")
     end
     
     protected

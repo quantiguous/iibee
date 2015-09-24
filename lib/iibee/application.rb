@@ -60,5 +60,17 @@ module Iibee
       
       return applications
     end
+    
+    def perform(action)
+      response = Iibee::Connection.new(options: options).put("#{CONTEXT_PATH}/#{executionGroupName}/applications/#{name}?action=#{action}")
+    end
+    
+    def start
+      response = Iibee::Connection.new(options: options).put("#{CONTEXT_PATH}/#{executionGroupName}/applications/#{name}?action=start")
+    end
+    
+    def stop
+      response = Iibee::Connection.new(options: options).put("#{CONTEXT_PATH}/#{executionGroupName}/applications/#{name}?action=stop")
+    end
   end
 end

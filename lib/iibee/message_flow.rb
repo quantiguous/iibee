@@ -16,13 +16,15 @@ module Iibee
     end
     CONTEXT_PATH = "apiv1/executiongroups"
     
-    attr_reader :type, :isRunning, :runMode, :startMode, :hasChildren, :uuid, :name, :propertiesUri, :executionGroupName, :options
+    attr_reader :type, :isRunning, :runMode, :startMode, :hasChildren, :uuid, :name, :propertiesUri, :executionGroupName, :options, :parentType, :parentName
     
-    def initialize(document, executionGroupName, options)
+    def initialize(document, parentType, parentName, executionGroupName, options)
       document.xpath('@*').each do |attribute|        
         instance_variable_set("@#{attribute.name}", attribute.value)
       end
       @executionGroupName = executionGroupName
+      @parentType = parentType
+      @parentName = parentName
       @options = options
     end
     
@@ -33,7 +35,7 @@ module Iibee
     def properties
       response = Iibee::Connection.new(options: options).get("#{self.propertiesUri}")
       document = Oga.parse_xml(response.body)
-      @properties = Iibee::Service::Properties.new(document)
+      @properties = Iibee::MessageFlow::Properties.new(document)
     end
     
     def self.find_by(executionGroupName: nil, name: nil, options: {})
@@ -53,10 +55,22 @@ module Iibee
       document = Oga.parse_xml(response.body)
       
       document.xpath("//messageflow[@name='#{name}']").each do |msg_flow|
-        msg_flows << new(msg_flow, msg_flow.parent.parent.get('name'), options)
+        msg_flows << new(msg_flow, msg_flow.parent.parent.parent.get('type'), msg_flow.parent.parent.get('name'), msg_flow.parent.parent.parent.parent.get('name'), options)
       end
       
       return msg_flows
+    end
+    
+    def perform(action)
+      response = Iibee::Connection.new(options: options).put("#{CONTEXT_PATH}/#{executionGroupName}/#{parentType}/#{parentName}/messageflows/#{name}?action=#{action}")
+    end
+    
+    def start
+      response = Iibee::Connection.new(options: options).put("#{CONTEXT_PATH}/#{executionGroupName}/#{parentType}/#{parentName}/messageflows/#{name}?action=start")
+    end
+    
+    def stop
+      response = Iibee::Connection.new(options: options).put("#{CONTEXT_PATH}/#{executionGroupName}/#{parentType}/#{parentName}/messageflows/#{name}?action=stop")
     end
   end
 end

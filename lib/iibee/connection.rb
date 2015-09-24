@@ -14,5 +14,9 @@ module Iibee
     def get(url)
       @conn.get(url)
     end
+    
+    def put(url)
+      @conn.put(url)
+    end
   end
 end

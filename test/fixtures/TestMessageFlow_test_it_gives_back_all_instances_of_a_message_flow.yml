@@ -1,0 +1,224 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://10.211.55.4:4414/apiv1/executiongroups/?depth=5
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Cache-Control:
+      - max-age=0
+      Expires:
+      - Tue, 22 Sep 2015 13:08:28 GMT
+      Content-Type:
+      - application/xml
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Tue, 22 Sep 2015 13:08:28 GMT
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><executionGroups
+        type="executionGroups" uri="/apiv1/executiongroups"><executionGroup type="executionGroup"
+        isRunning="true" runMode="running" isRestricted="false" uri="/apiv1/executiongroups/Mock"
+        propertiesUri="/apiv1/executiongroups/Mock/properties" uuid="212a9a1e-4901-0000-0080-e7321e7ebaa6"
+        name="Mock"><services type="services" uri="/apiv1/executiongroups/Mock/services"><service
+        type="service" isRunning="true" runMode="running" startMode="Maintained" uri="/apiv1/executiongroups/Mock/services/test"
+        propertiesUri="/apiv1/executiongroups/Mock/services/test/properties" uuid="f97913b0-4f01-0000-0080-8c8ca22aa21f"
+        name="test"><libraries type="libraries" uri="/apiv1/executiongroups/Mock/services/test/libraries"/><messageFlows
+        type="messageFlows" uri="/apiv1/executiongroups/Mock/services/test/messageflows"><messageFlow
+        type="messageFlow" isRunning="true" runMode="running" startMode="Maintained"
+        flowDesignUri="/apiv1/executiongroups/Mock/services/test/messageflows/gen.test/flowdesign"
+        uri="/apiv1/executiongroups/Mock/services/test/messageflows/gen.test" propertiesUri="/apiv1/executiongroups/Mock/services/test/messageflows/gen.test/properties"
+        uuid="2c7a13b0-4f01-0000-0080-8c8ca22aa21f" name="gen.test"/></messageFlows><interface
+        type="interface" uri="/apiv1/executiongroups/Mock/services/test/interface"><operation
+        type="operation" name="operation1" operationType="RequestResponse" uri="/apiv1/executiongroups/Mock/services/test/interface/operation1"
+        propertiesUri="/apiv1/executiongroups/Mock/services/test/interface/operation1/properties"/></interface></service></services><applications
+        type="applications" uri="/apiv1/executiongroups/Mock/applications"><application
+        type="application" isRunning="true" runMode="running" startMode="Maintained"
+        uri="/apiv1/executiongroups/Mock/applications/MockServer.app" propertiesUri="/apiv1/executiongroups/Mock/applications/MockServer.app/properties"
+        uuid="fb8e2680-4901-0000-0080-dda960d8d103" name="MockServer.app"><libraries
+        type="libraries" uri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries"><library
+        type="library" hasChildren="false" uri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/IBMdefined"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/IBMdefined/properties"
+        uuid="82dc3890-4901-0000-0080-b19eedcc38e8" name="IBMdefined"/><library type="library"
+        hasChildren="false" uri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/gimps"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/gimps/properties"
+        uuid="1e8f2680-4901-0000-0080-dda960d8d103" name="gimps"/><library type="library"
+        hasChildren="false" uri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/finacle.common1"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/finacle.common1/properties"
+        uuid="d38f2680-4901-0000-0080-dda960d8d103" name="finacle.common1"/><library
+        type="library" hasChildren="false" uri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/finacle.RetCustAdd"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/finacle.RetCustAdd/properties"
+        uuid="1025c948-4a01-0000-0080-9603a384a374" name="finacle.RetCustAdd"/><library
+        type="library" hasChildren="false" uri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/finacle.custom"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/finacle.custom/properties"
+        uuid="288f2680-4901-0000-0080-dda960d8d103" name="finacle.custom"/><library
+        type="library" hasChildren="false" uri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/finacle.BalInq"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/finacle.BalInq/properties"
+        uuid="e18f2680-4901-0000-0080-dda960d8d103" name="finacle.BalInq"/><library
+        type="library" hasChildren="false" uri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/billdesk"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/billdesk/properties"
+        uuid="d98f2680-4901-0000-0080-dda960d8d103" name="billdesk"/><library type="library"
+        hasChildren="false" uri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/finacle.XferTrnAdd"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/finacle.XferTrnAdd/properties"
+        uuid="148f2680-4901-0000-0080-dda960d8d103" name="finacle.XferTrnAdd"/><library
+        type="library" hasChildren="false" uri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/finacle.TDAcctAdd"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/finacle.TDAcctAdd/properties"
+        uuid="048812b3-4a01-0000-0080-aa4a2f00cb25" name="finacle.TDAcctAdd"/><library
+        type="library" hasChildren="false" uri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/finacle.common"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/finacle.common/properties"
+        uuid="228f2680-4901-0000-0080-dda960d8d103" name="finacle.common"/><library
+        type="library" hasChildren="false" uri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/finacle.XferTrnRev"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/finacle.XferTrnRev/properties"
+        uuid="bdfff5a7-4901-0000-0080-99679e7d271c" name="finacle.XferTrnRev"/><library
+        type="library" hasChildren="false" uri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/ISO8583"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/ISO8583/properties"
+        uuid="49f7ef25-4a01-0000-0080-e0e9860d7792" name="ISO8583"/><library type="library"
+        hasChildren="false" uri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/finacle.patch"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/finacle.patch/properties"
+        uuid="1b8f2680-4901-0000-0080-dda960d8d103" name="finacle.patch"/><library
+        type="library" hasChildren="false" uri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/rbl.mpin"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/rbl.mpin/properties"
+        uuid="2ac8e9ea-4901-0000-0080-d2a2287ca8e5" name="rbl.mpin"/><library type="library"
+        hasChildren="false" uri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/rbl.otp"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/MockServer.app/libraries/rbl.otp/properties"
+        uuid="ef833886-4901-0000-0080-bea2c26f27e9" name="rbl.otp"/></libraries><messageFlows
+        type="messageFlows" uri="/apiv1/executiongroups/Mock/applications/MockServer.app/messageflows"><messageFlow
+        type="messageFlow" isRunning="true" runMode="running" startMode="Maintained"
+        flowDesignUri="/apiv1/executiongroups/Mock/applications/MockServer.app/messageflows/RblOtpAndMpinHTTP/flowdesign"
+        uri="/apiv1/executiongroups/Mock/applications/MockServer.app/messageflows/RblOtpAndMpinHTTP"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/MockServer.app/messageflows/RblOtpAndMpinHTTP/properties"
+        uuid="3dcfe9ea-4901-0000-0080-d2a2287ca8e5" name="RblOtpAndMpinHTTP"/><messageFlow
+        type="messageFlow" isRunning="true" runMode="running" startMode="Maintained"
+        flowDesignUri="/apiv1/executiongroups/Mock/applications/MockServer.app/messageflows/CashPointHTTP/flowdesign"
+        uri="/apiv1/executiongroups/Mock/applications/MockServer.app/messageflows/CashPointHTTP"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/MockServer.app/messageflows/CashPointHTTP/properties"
+        uuid="8b902680-4901-0000-0080-dda960d8d103" name="CashPointHTTP"/><messageFlow
+        type="messageFlow" isRunning="true" runMode="running" startMode="Maintained"
+        flowDesignUri="/apiv1/executiongroups/Mock/applications/MockServer.app/messageflows/GanasevaTCPIP/flowdesign"
+        uri="/apiv1/executiongroups/Mock/applications/MockServer.app/messageflows/GanasevaTCPIP"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/MockServer.app/messageflows/GanasevaTCPIP/properties"
+        uuid="89fbef25-4a01-0000-0080-e0e9860d7792" name="GanasevaTCPIP"/><messageFlow
+        type="messageFlow" isRunning="true" runMode="running" startMode="Maintained"
+        flowDesignUri="/apiv1/executiongroups/Mock/applications/MockServer.app/messageflows/FinacleHTTP/flowdesign"
+        uri="/apiv1/executiongroups/Mock/applications/MockServer.app/messageflows/FinacleHTTP"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/MockServer.app/messageflows/FinacleHTTP/properties"
+        uuid="90902680-4901-0000-0080-dda960d8d103" name="FinacleHTTP"/><messageFlow
+        type="messageFlow" isRunning="true" runMode="running" startMode="Maintained"
+        flowDesignUri="/apiv1/executiongroups/Mock/applications/MockServer.app/messageflows/BillDeskHTTP/flowdesign"
+        uri="/apiv1/executiongroups/Mock/applications/MockServer.app/messageflows/BillDeskHTTP"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/MockServer.app/messageflows/BillDeskHTTP/properties"
+        uuid="93902680-4901-0000-0080-dda960d8d103" name="BillDeskHTTP"/></messageFlows></application><application
+        type="application" isRunning="true" runMode="running" startMode="Maintained"
+        uri="/apiv1/executiongroups/Mock/applications/Example" propertiesUri="/apiv1/executiongroups/Mock/applications/Example/properties"
+        uuid="76165eab-4f01-0000-0080-8c8ca22aa21f" name="Example"><libraries type="libraries"
+        uri="/apiv1/executiongroups/Mock/applications/Example/libraries"/><messageFlows
+        type="messageFlows" uri="/apiv1/executiongroups/Mock/applications/Example/messageflows"><messageFlow
+        type="messageFlow" isRunning="true" runMode="running" startMode="Maintained"
+        flowDesignUri="/apiv1/executiongroups/Mock/applications/Example/messageflows/gdmMultDemo/flowdesign"
+        uri="/apiv1/executiongroups/Mock/applications/Example/messageflows/gdmMultDemo"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/Example/messageflows/gdmMultDemo/properties"
+        uuid="1b175eab-4f01-0000-0080-8c8ca22aa21f" name="gdmMultDemo"/><messageFlow
+        type="messageFlow" isRunning="true" runMode="running" startMode="Maintained"
+        flowDesignUri="/apiv1/executiongroups/Mock/applications/Example/messageflows/esqlDemo/flowdesign"
+        uri="/apiv1/executiongroups/Mock/applications/Example/messageflows/esqlDemo"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/Example/messageflows/esqlDemo/properties"
+        uuid="1f175eab-4f01-0000-0080-8c8ca22aa21f" name="esqlDemo"/><messageFlow
+        type="messageFlow" isRunning="true" runMode="running" startMode="Maintained"
+        flowDesignUri="/apiv1/executiongroups/Mock/applications/Example/messageflows/gdm1/flowdesign"
+        uri="/apiv1/executiongroups/Mock/applications/Example/messageflows/gdm1" propertiesUri="/apiv1/executiongroups/Mock/applications/Example/messageflows/gdm1/properties"
+        uuid="23175eab-4f01-0000-0080-8c8ca22aa21f" name="gdm1"/><messageFlow type="messageFlow"
+        isRunning="true" runMode="running" startMode="Maintained" flowDesignUri="/apiv1/executiongroups/Mock/applications/Example/messageflows/gdm/flowdesign"
+        uri="/apiv1/executiongroups/Mock/applications/Example/messageflows/gdm" propertiesUri="/apiv1/executiongroups/Mock/applications/Example/messageflows/gdm/properties"
+        uuid="28175eab-4f01-0000-0080-8c8ca22aa21f" name="gdm"/><messageFlow type="messageFlow"
+        isRunning="true" runMode="running" startMode="Maintained" flowDesignUri="/apiv1/executiongroups/Mock/applications/Example/messageflows/demo3/flowdesign"
+        uri="/apiv1/executiongroups/Mock/applications/Example/messageflows/demo3"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/Example/messageflows/demo3/properties"
+        uuid="2c175eab-4f01-0000-0080-8c8ca22aa21f" name="demo3"/><messageFlow type="messageFlow"
+        isRunning="true" runMode="running" startMode="Maintained" flowDesignUri="/apiv1/executiongroups/Mock/applications/Example/messageflows/demo2/flowdesign"
+        uri="/apiv1/executiongroups/Mock/applications/Example/messageflows/demo2"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/Example/messageflows/demo2/properties"
+        uuid="30175eab-4f01-0000-0080-8c8ca22aa21f" name="demo2"/><messageFlow type="messageFlow"
+        isRunning="true" runMode="running" startMode="Maintained" flowDesignUri="/apiv1/executiongroups/Mock/applications/Example/messageflows/demo4/flowdesign"
+        uri="/apiv1/executiongroups/Mock/applications/Example/messageflows/demo4"
+        propertiesUri="/apiv1/executiongroups/Mock/applications/Example/messageflows/demo4/properties"
+        uuid="3e175eab-4f01-0000-0080-8c8ca22aa21f" name="demo4"/><messageFlow type="messageFlow"
+        isRunning="true" runMode="running" startMode="Maintained" flowDesignUri="/apiv1/executiongroups/Mock/applications/Example/messageflows/jcn/flowdesign"
+        uri="/apiv1/executiongroups/Mock/applications/Example/messageflows/jcn" propertiesUri="/apiv1/executiongroups/Mock/applications/Example/messageflows/jcn/properties"
+        uuid="4c175eab-4f01-0000-0080-8c8ca22aa21f" name="jcn"/></messageFlows></application></applications><libraries
+        type="libraries" uri="/apiv1/executiongroups/Mock/libraries"/><messageFlows
+        type="messageFlows" uri="/apiv1/executiongroups/Mock/messageflows"/></executionGroup><executionGroup
+        type="executionGroup" isRunning="true" runMode="running" isRestricted="false"
+        uri="/apiv1/executiongroups/aml" propertiesUri="/apiv1/executiongroups/aml/properties"
+        uuid="87a72543-4d01-0000-0080-92cb36a72e5a" name="aml"><services type="services"
+        uri="/apiv1/executiongroups/aml/services"><service type="service" isRunning="true"
+        runMode="running" startMode="Maintained" uri="/apiv1/executiongroups/aml/services/test"
+        propertiesUri="/apiv1/executiongroups/aml/services/test/properties" uuid="8faf02a6-4f01-0000-0080-8c8ca22aa21f"
+        name="test"><libraries type="libraries" uri="/apiv1/executiongroups/aml/services/test/libraries"/><messageFlows
+        type="messageFlows" uri="/apiv1/executiongroups/aml/services/test/messageflows"><messageFlow
+        type="messageFlow" isRunning="true" runMode="running" startMode="Maintained"
+        flowDesignUri="/apiv1/executiongroups/aml/services/test/messageflows/gen.test/flowdesign"
+        uri="/apiv1/executiongroups/aml/services/test/messageflows/gen.test" propertiesUri="/apiv1/executiongroups/aml/services/test/messageflows/gen.test/properties"
+        uuid="22b002a6-4f01-0000-0080-8c8ca22aa21f" name="gen.test"/></messageFlows><interface
+        type="interface" uri="/apiv1/executiongroups/aml/services/test/interface"><operation
+        type="operation" name="operation1" operationType="RequestResponse" uri="/apiv1/executiongroups/aml/services/test/interface/operation1"
+        propertiesUri="/apiv1/executiongroups/aml/services/test/interface/operation1/properties"/></interface></service></services><applications
+        type="applications" uri="/apiv1/executiongroups/aml/applications"><application
+        type="application" isRunning="true" runMode="running" startMode="Maintained"
+        uri="/apiv1/executiongroups/aml/applications/Example" propertiesUri="/apiv1/executiongroups/aml/applications/Example/properties"
+        uuid="3fe68245-4f01-0000-0080-8c8ca22aa21f" name="Example"><libraries type="libraries"
+        uri="/apiv1/executiongroups/aml/applications/Example/libraries"/><messageFlows
+        type="messageFlows" uri="/apiv1/executiongroups/aml/applications/Example/messageflows"><messageFlow
+        type="messageFlow" isRunning="true" runMode="running" startMode="Maintained"
+        flowDesignUri="/apiv1/executiongroups/aml/applications/Example/messageflows/gdmMultDemo/flowdesign"
+        uri="/apiv1/executiongroups/aml/applications/Example/messageflows/gdmMultDemo"
+        propertiesUri="/apiv1/executiongroups/aml/applications/Example/messageflows/gdmMultDemo/properties"
+        uuid="95e68245-4f01-0000-0080-8c8ca22aa21f" name="gdmMultDemo"/><messageFlow
+        type="messageFlow" isRunning="true" runMode="running" startMode="Maintained"
+        flowDesignUri="/apiv1/executiongroups/aml/applications/Example/messageflows/esqlDemo/flowdesign"
+        uri="/apiv1/executiongroups/aml/applications/Example/messageflows/esqlDemo"
+        propertiesUri="/apiv1/executiongroups/aml/applications/Example/messageflows/esqlDemo/properties"
+        uuid="98e68245-4f01-0000-0080-8c8ca22aa21f" name="esqlDemo"/><messageFlow
+        type="messageFlow" isRunning="true" runMode="running" startMode="Maintained"
+        flowDesignUri="/apiv1/executiongroups/aml/applications/Example/messageflows/gdm1/flowdesign"
+        uri="/apiv1/executiongroups/aml/applications/Example/messageflows/gdm1" propertiesUri="/apiv1/executiongroups/aml/applications/Example/messageflows/gdm1/properties"
+        uuid="9be68245-4f01-0000-0080-8c8ca22aa21f" name="gdm1"/><messageFlow type="messageFlow"
+        isRunning="true" runMode="running" startMode="Maintained" flowDesignUri="/apiv1/executiongroups/aml/applications/Example/messageflows/gdm/flowdesign"
+        uri="/apiv1/executiongroups/aml/applications/Example/messageflows/gdm" propertiesUri="/apiv1/executiongroups/aml/applications/Example/messageflows/gdm/properties"
+        uuid="9de68245-4f01-0000-0080-8c8ca22aa21f" name="gdm"/><messageFlow type="messageFlow"
+        isRunning="true" runMode="running" startMode="Maintained" flowDesignUri="/apiv1/executiongroups/aml/applications/Example/messageflows/demo3/flowdesign"
+        uri="/apiv1/executiongroups/aml/applications/Example/messageflows/demo3" propertiesUri="/apiv1/executiongroups/aml/applications/Example/messageflows/demo3/properties"
+        uuid="a2e68245-4f01-0000-0080-8c8ca22aa21f" name="demo3"/><messageFlow type="messageFlow"
+        isRunning="true" runMode="running" startMode="Maintained" flowDesignUri="/apiv1/executiongroups/aml/applications/Example/messageflows/demo2/flowdesign"
+        uri="/apiv1/executiongroups/aml/applications/Example/messageflows/demo2" propertiesUri="/apiv1/executiongroups/aml/applications/Example/messageflows/demo2/properties"
+        uuid="a6e68245-4f01-0000-0080-8c8ca22aa21f" name="demo2"/><messageFlow type="messageFlow"
+        isRunning="true" runMode="running" startMode="Maintained" flowDesignUri="/apiv1/executiongroups/aml/applications/Example/messageflows/demo4/flowdesign"
+        uri="/apiv1/executiongroups/aml/applications/Example/messageflows/demo4" propertiesUri="/apiv1/executiongroups/aml/applications/Example/messageflows/demo4/properties"
+        uuid="a9e68245-4f01-0000-0080-8c8ca22aa21f" name="demo4"/><messageFlow type="messageFlow"
+        isRunning="true" runMode="running" startMode="Maintained" flowDesignUri="/apiv1/executiongroups/aml/applications/Example/messageflows/jcn/flowdesign"
+        uri="/apiv1/executiongroups/aml/applications/Example/messageflows/jcn" propertiesUri="/apiv1/executiongroups/aml/applications/Example/messageflows/jcn/properties"
+        uuid="ace68245-4f01-0000-0080-8c8ca22aa21f" name="jcn"/></messageFlows></application></applications><libraries
+        type="libraries" uri="/apiv1/executiongroups/aml/libraries"/><messageFlows
+        type="messageFlows" uri="/apiv1/executiongroups/aml/messageflows"/></executionGroup></executionGroups>
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 13:08:29 GMT
+recorded_with: VCR 2.9.3
