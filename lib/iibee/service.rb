@@ -60,6 +60,17 @@ module Iibee
       return services
     end
     
+    def message_flows
+      msg_flows = []
+      response = Iibee::Connection.new(options: options).get("#{CONTEXT_PATH}/#{executionGroupName}/services/#{name}/messageflows")
+      document = Oga.parse_xml(response.body)
+      document.xpath("//messageFlow']").each do |msg_flow|
+        msg_flows << Iibee::MessageFlow.new(msg_flow, 'service', name, executionGroupName, options)
+      end
+      
+      return msg_flows
+    end
+    
     def perform(action)
       response = Iibee::Connection.new(options: options).put("#{CONTEXT_PATH}/#{executionGroupName}/services/#{name}?action=#{action}")
     end
