@@ -57,7 +57,7 @@ module Iibee
       document.xpath("//messageflow[@name='#{name}']").each do |msg_flow|
         msg_flows << new(msg_flow, msg_flow.parent.parent.parent.get('type'), msg_flow.parent.parent.get('name'), msg_flow.parent.parent.parent.parent.get('name'), options)
         p "******************** PARENT ***********************"
-        p msg_flow.parent.parent.parent.parent.get('type')
+        p msg_flow.parent.parent.parent.get('type')
       end
       
       return msg_flows
